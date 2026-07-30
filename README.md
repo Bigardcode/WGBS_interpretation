@@ -112,19 +112,18 @@ Biological pathway and gene ontology
     #Get a histogram of the read coverage per sample
     getCoverageStats(myobj[[1]], plot=TRUE, both.strands=FALSE)
 
-
 - Step_6..............Filter low coverage below 10...............................
 ---
 
-   #discards bases that have coverage below 10 reads
-   #discards the bases that have more than 99.9th percentile of coverage in each sample.
+    #discards bases that have coverage below 10 reads
+    #discards the bases that have more than 99.9th percentile of coverage in each sample.
 
-   myobj.filt <- filterByCoverage(myobj,
-   lo.count=10,
-   lo.perc=NULL,
-   hi.count=NULL,
-   hi.perc=99.9)
-   getCoverageStats(myobj.filt [[1]], plot=TRUE, both.strands=FALSE)
+    myobj.filt <- filterByCoverage(myobj,
+    lo.count=10,
+    lo.perc=NULL,
+    hi.count=NULL,
+    hi.perc=99.9)
+    getCoverageStats(myobj.filt [[1]], plot=TRUE, both.strands=FALSE)
 
 
 - Step_7..............Normalization..............................................
@@ -136,21 +135,20 @@ Biological pathway and gene ontology
      getCoverageStats(myobj.filt.norm[[1]], plot=TRUE, both.strands=FALSE)
 
 
-- Step_8..............Merging samples............................................
+- Step_8..............Merging samples.................................................................
 ---
-
-   #Merging samples....................
-   library(dplyr)
-   library(tidyverse)
-   library(tidyr)
-   library(rlang)
-   library(RColorBrewer)
-   library(knitr)
-   ##we use :: notation to make sure unite() function from methylKit is called
-   #unite: unite methylRawList to a single table
-   meth =methylKit::unite(myobj, destrand=FALSE)
-   meth
-   class(meth)
+    #Merging samples....................
+    library(dplyr)
+    library(tidyverse)
+    library(tidyr)
+    library(rlang)
+    library(RColorBrewer)
+    library(knitr)
+    ##we use :: notation to make sure unite() function from methylKit is called
+    #unite: unite methylRawList to a single table
+    meth =methylKit::unite(myobj, destrand=FALSE)
+    meth
+    class(meth)
 
 - Step_9.............Differential Methylation. cytosine (DMC)...................................
 ---
@@ -188,20 +186,20 @@ Biological pathway and gene ontology
     head(myDiff25p.hyper)
     myDiff25p.hyper <- myDiff25p.hyper[order(myDiff25p.hyper$qvalue),]
    
-   #get hypo methylated bases
-   myDiff25p.hypo=getMethylDiff(myDiff,difference=25,qvalue=0.01,type="hypo")
-  head(myDiff25p.hypo)
-  myDiff25p.hypo <- myDiff25p.hypo[order(myDiff25p.hypo$qvalue),]
+    #get hypo methylated bases
+    myDiff25p.hypo=getMethylDiff(myDiff,difference=25,qvalue=0.01,type="hypo")
+    head(myDiff25p.hypo)
+    myDiff25p.hypo <- myDiff25p.hypo[order(myDiff25p.hypo$qvalue),]
 
 
-   #get all differentially mentholated bases
-   myDiff25p=getMethylDiff(myDiff,difference=25,qvalue=0.01)
-   head(myDiff25p)
-   myDiff25p <- myDiff25p[order(myDiff25p$qvalue),]
-   myDiff25p
-   write.csv(myDiff25p, file="DMC_myDiff25p.csv", row.names=T)
-   diffMethPerChr(myDiff,plot=FALSE,qvalue.cutoff=0.01, meth.cutoff=25)
-   setwd("D:/Susia_Student/raheleh/WGBS_part_11_Differential Methylation Analysis/mwethilkt/result"
+    #get all differentially mentholated bases
+     myDiff25p=getMethylDiff(myDiff,difference=25,qvalue=0.01)
+     head(myDiff25p)
+     myDiff25p <- myDiff25p[order(myDiff25p$qvalue),]
+     myDiff25p
+     write.csv(myDiff25p, file="DMC_myDiff25p.csv", row.names=T)
+     diffMethPerChr(myDiff,plot=FALSE,qvalue.cutoff=0.01, meth.cutoff=25)
+     setwd("D:/Susia_Student/raheleh/WGBS_part_11_Differential Methylation Analysis/mwethilkt/result"
    write.csv(myDiff25p.hyper, file="DMC_myDiff25p.hyper.csv", row.names=T)
    write.csv(myDiff25p.hypo, file="DMC_myDiff25p.hypo.csv", row.names=T)
    write.csv(myDiff25p, file="DMC_myDiff25p.csv", row.names=T)
