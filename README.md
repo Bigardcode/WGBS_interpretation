@@ -204,10 +204,5 @@ Biological pathway and gene ontology
      diffMethPerChr(myDiff,plot=FALSE,qvalue.cutoff=0.01, meth.cutoff=25)
      setwd("D:/Susia_Student/raheleh/WGBS_part_11_Differential Methylation Analysis/mwethilkt/result"
      write.csv(myDiff25p.hyper, file="DMC_myDiff25p.hyper.csv", row.names=T)
-   write.csv(myDiff25p.hypo, file="DMC_myDiff25p.hypo.csv", row.names=T)
-   write.csv(myDiff25p, file="DMC_myDiff25p.csv", row.names=T)
-
-
-
-      
- 
+     write.csv(myDiff25p.hypo, file="DMC_myDiff25p.hypo.csv", row.names=T)
+     write.csv(myDiff25p, file="DMC_myDiff25p.csv", row.names=T)
