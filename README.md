@@ -1,5 +1,5 @@
-https://www.ivf-spain.com/storage/app/media/uploaded-files/epigenetica-en-1.jpg
 
+![me](https://github.com/Bigardcode/WGBS_interpretation/assets/https://www.ivf-spain.com/storage/app/media/uploaded-files/epigenetica-en-1.jpg)
 
 # Interpretation of WGBS 
 
