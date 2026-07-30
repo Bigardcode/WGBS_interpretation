@@ -129,7 +129,7 @@ Biological pathway and gene ontology
 - Step_7..............Normalization..............................................
 ---
 
-    #Thus, if the coverage is quite similar across the samples, this step is not really essential, otherwise it might       be a good idea to normalize the data.
+     #Thus, if the coverage is quite similar across the samples, this step is not really essential, otherwise it might       be a good idea to normalize the data.
 
      myobj.filt.norm <- normalizeCoverage(myobj.filt, method = "median")
      getCoverageStats(myobj.filt.norm[[1]], plot=TRUE, both.strands=FALSE)
@@ -192,7 +192,7 @@ Biological pathway and gene ontology
     myDiff25p.hypo <- myDiff25p.hypo[order(myDiff25p.hypo$qvalue),]
 
 
-    #get all differentially mentholated bases
+     #get all differentially mentholated bases
      myDiff25p=getMethylDiff(myDiff,difference=25,qvalue=0.01)
      head(myDiff25p)
      myDiff25p <- myDiff25p[order(myDiff25p$qvalue),]
@@ -200,7 +200,7 @@ Biological pathway and gene ontology
      write.csv(myDiff25p, file="DMC_myDiff25p.csv", row.names=T)
      diffMethPerChr(myDiff,plot=FALSE,qvalue.cutoff=0.01, meth.cutoff=25)
      setwd("D:/Susia_Student/raheleh/WGBS_part_11_Differential Methylation Analysis/mwethilkt/result"
-   write.csv(myDiff25p.hyper, file="DMC_myDiff25p.hyper.csv", row.names=T)
+     write.csv(myDiff25p.hyper, file="DMC_myDiff25p.hyper.csv", row.names=T)
    write.csv(myDiff25p.hypo, file="DMC_myDiff25p.hypo.csv", row.names=T)
    write.csv(myDiff25p, file="DMC_myDiff25p.csv", row.names=T)
 
