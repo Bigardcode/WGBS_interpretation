@@ -12,6 +12,7 @@ Differentially Methylated Position (DMP) analysis?
 Transposable Element (TE) Analysis:
 Promoter Analysis
 Gene Body Analysis
--C Gene Set Enrichment
+
+- C Gene Set Enrichment
 Biological pathway and gene ontology 
 
