@@ -1,3 +1,6 @@
+https://www.ivf-spain.com/storage/app/media/uploaded-files/epigenetica-en-1.jpg
+
+
 # Interpretation of WGBS 
 
 WGBS is a powerful tool for providing a comprehensive view of DNA methylation across the genome. Proper data processing, statistical analysis, and biological interpretation are crucial for drawing meaningful conclusions from the results. It can uncover insights into epigenetic regulation, disease mechanisms, and developmental biology.
