@@ -17,19 +17,19 @@ Gene Body Analysis
 - C Gene Set Enrichment
 Biological pathway and gene ontology
 
-
-
 ---
-- Step_1.......................package installation ....................................................
 
+
+- Step_1.......................package installation ....................................................
+--- 
      if (!requireNamespace("BiocManager", quietly = TRUE))install.packages("BiocManager")
      BiocManager::install("miceadds")
      save.image() 
      load("")
 
---- 
-- Step_2.........................Loading the_libraries ......................................................
 
+- Step_2.........................Loading the_libraries ......................................................
+---
      library(BiocManager)
      BiocManager::valid()
 
