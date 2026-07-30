@@ -28,8 +28,10 @@ Biological pathway and gene ontology
      load("")
 
 
+
 - Step_2.........................Loading the_libraries ......................................................
 ---
+
      library(BiocManager)
      BiocManager::valid()
 
@@ -55,10 +57,12 @@ Biological pathway and gene ontology
     library(tools)
     library(limma)
     library(edgeR)
+
     
 - Step_3...........................set directory ............................................................
 ---
-   setwd("D:/Susia_Student/raheleh/WGBS_part_11_Differential Methylation Analysis/mwethilkt")
+
+    setwd("D:/Susia_Student/raheleh/WGBS_part_11_Differential Methylation Analysis/mwethilkt")
 
 
 - Step_4..............load datasets  ............................................
@@ -92,8 +96,10 @@ Biological pathway and gene ontology
       head(myobj[[2]])
       class(myobj)
 
+      
 - Step_5..............Descriptive Statistics ....................................
 ---
+
     # Get percentile data by setting plot=FALSE
     getCoverageStats(myobj[[1]], plot=FALSE, both.strands=FALSE)
     #Get a histogram of the methylation percentage per sample
@@ -105,6 +111,7 @@ Biological pathway and gene ontology
     #y-axis indicating the percentage or number of CpG sites within that depth. 
     #Get a histogram of the read coverage per sample
     getCoverageStats(myobj[[1]], plot=TRUE, both.strands=FALSE)
+
 
 - Step_6..............Filter low coverage below 10...............................
 ---
@@ -119,15 +126,17 @@ Biological pathway and gene ontology
    hi.perc=99.9)
    getCoverageStats(myobj.filt [[1]], plot=TRUE, both.strands=FALSE)
 
+
 - Step_7..............Normalization..............................................
 ---
-   #Thus, if the coverage is quite similar across the samples, this step is not really essential, otherwise it might       be   a good idea to normalize the data.
 
-    myobj.filt.norm <- normalizeCoverage(myobj.filt, method = "median")
-    getCoverageStats(myobj.filt.norm[[1]], plot=TRUE, both.strands=FALSE)
+    #Thus, if the coverage is quite similar across the samples, this step is not really essential, otherwise it might       be a good idea to normalize the data.
+
+     myobj.filt.norm <- normalizeCoverage(myobj.filt, method = "median")
+     getCoverageStats(myobj.filt.norm[[1]], plot=TRUE, both.strands=FALSE)
 
 
--Step_8..............Merging samples............................................
+- Step_8..............Merging samples............................................
 ---
 
    #Merging samples....................
@@ -137,13 +146,13 @@ Biological pathway and gene ontology
    library(rlang)
    library(RColorBrewer)
    library(knitr)
-   ## we use :: notation to make sure unite() function from methylKit is called
+   ##we use :: notation to make sure unite() function from methylKit is called
    #unite: unite methylRawList to a single table
    meth =methylKit::unite(myobj, destrand=FALSE)
    meth
    class(meth)
 
--Step_9.............Differential Methylation. cytosine (DMC)...................................
+- Step_9.............Differential Methylation. cytosine (DMC)...................................
 ---
     #test = c("F", "Chisq", "fast.fisher", "midPval")
  
@@ -158,21 +167,21 @@ Biological pathway and gene ontology
     setwd("D:/Susia_Student/raheleh/WGBS_part_11_Differential Methylation Analysis/mwethilkt/result")
     write.csv(myDiff, file="myDiff.csv", row.names=T)
 
-   #Simple volcano plot to get an overview of differential methylation
-   plot(myDiff$meth.diff, -log10(myDiff$qvalue))
-   abline(v=0)
+    #Simple volcano plot to get an overview of differential methylation
+    plot(myDiff$meth.diff, -log10(myDiff$qvalue))
+    abline(v=0)
 
-   #The x-axis shows the DNA methylation difference 
-   #and the y-axis shows the − log¹⁰p-value of each CpG site.
+    #The x-axis shows the DNA methylation difference 
+    #and the y-axis shows the − log¹⁰p-value of each CpG site.
 
-   #Overview of percentage hyper and hypo CpGs per chromosome.
-   #Differential methylation by chromosome
-   diffMethPerChr(myDiff)
-   #after q-value calculation, we can select the differentially methylated 
-   #regions/bases based on q-value and percent methylation difference cutoffs. 
-   #Following bit selects the bases that have q-value<0.01 and percent methylation 
-   #difference larger than 25%. If you specify type="hyper" or type="hypo" options,
-   #you will get hyper-methylated or hypo-methylated regions/bases.
+    #Overview of percentage hyper and hypo CpGs per chromosome.
+    #Differential methylation by chromosome
+    diffMethPerChr(myDiff)
+    #after q-value calculation, we can select the differentially methylated 
+    #regions/bases based on q-value and percent methylation difference cutoffs. 
+    #Following bit selects the bases that have q-value<0.01 and percent methylation 
+    #difference larger than 25%. If you specify type="hyper" or type="hypo" options,
+    #you will get hyper-methylated or hypo-methylated regions/bases.
 
     #get hyper methylated bases................................................
     myDiff25p.hyper= getMethylDiff(myDiff,difference=25, qvalue=0.01, type="hyper")
