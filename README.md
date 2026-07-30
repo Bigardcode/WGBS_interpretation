@@ -23,8 +23,6 @@ Biological pathway and gene ontology
 
     # Step_1.......................package installation ............................
      
-
-
      >>>
 
      if (!requireNamespace("BiocManager", quietly = TRUE))install.packages("BiocManager")
@@ -33,4 +31,4 @@ Biological pathway and gene ontology
 
      save.image() 
 
-     #load("")
+     load("")
