@@ -43,7 +43,7 @@ Biological pathway and gene ontology
      library(GenomeInfoDb)
      library(GenomicRanges)
 
-     # Annotation package
+    # Annotation package
     library(readr)
     library(usethis)
     library(devtools)
@@ -55,3 +55,27 @@ Biological pathway and gene ontology
     library(tools)
     library(limma)
     library(edgeR)
+    
+- #Step_3...........................set directory ............................................................
+---
+
+   setwd("D:/Susia_Student/raheleh/WGBS_part_11_Differential Methylation Analysis/mwethilkt")
+
+Step_4..............load datasets  ............................................
+---   
+
+    ##example 
+
+
+   P6_1 <- read.delim("P6_1.bismark.cov.gz", header=FALSE, nrows=6)
+
+    P6_1
+
+
+
+   # Define the list containing the Bismark coverage files.
+
+    file.list <- list("P6_1.bismark.cov.gz", "P6_4.bismark.cov.gz", "P8_3.bismark.cov.gz",
+    "P8_6.bismark.cov.gz")
+
+    file.list
