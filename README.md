@@ -20,16 +20,17 @@ Biological pathway and gene ontology
 
 ---
 
- Step_1.......................package installation ............................
-### ...............................................................................
+
+     Step_1.......................package installation ............................
+      ### ...............................................................................
 
 
->>>
+     >>>
 
-if (!requireNamespace("BiocManager", quietly = TRUE))install.packages("BiocManager")
+     if (!requireNamespace("BiocManager", quietly = TRUE))install.packages("BiocManager")
 
-BiocManager::install("miceadds")
+     BiocManager::install("miceadds")
 
-save.image() 
+     save.image() 
 
-#load("")
+     #load("")
